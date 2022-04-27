@@ -23,4 +23,13 @@ app.get('/todos', async (req, res) => {
     res.json(todos);
 });
 
+app.post('/todos/new', (req, res) => {
+    const todo = new DayPlanner({
+        text: req.body.text
+    });
+    todo.save()
+
+    res.json(todo);
+});
+
 app.listen(PORT, () => console.log('Server running on port: 3001'));
