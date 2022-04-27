@@ -13,7 +13,6 @@ function App() {
 		console.log(todos);
 	}, []);
 
-
 	const GetTodos = () => {
 		fetch(API_BASE + '/todos')
 			.then((res) => res.json())
@@ -27,13 +26,16 @@ function App() {
 			<h1>Welcome, {name}</h1>
 			<h4>Your Tasks</h4>
 			<div className='tasks'>
-				{todos.map(todo => (
-					<div className='task' key={todo._id}>
-          <div className='checkbox'></div>
-          <div className='text'>{todo.text}</div>
-          <div className='delete-task'>X</div>
-        </div>
-        ))}
+				{todos.map((todo) => (
+					<div
+						className={'task ' + (todo.complete ? 'is-complete' : '')}
+						key={todo._id}
+					>
+						<div className='checkbox'></div>
+						<div className='text'>{todo.text}</div>
+						<div className='delete-task'>X</div>
+					</div>
+				))}
 			</div>
 		</div>
 	);
