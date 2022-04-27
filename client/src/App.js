@@ -17,7 +17,7 @@ function App() {
     const data = await fetch(API_BASE + '/todo/new', {
       method: 'POST',
       headers: {
-        'Content-Type': 'applicationjson'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         text: newTodo
@@ -88,11 +88,11 @@ function App() {
 						<h3>Add Task</h3>
 						<input
 							className='add-task-input'
-							onChange={(e) => setNewTodo(e.target.value)}
+							onChange={e => setNewTodo(e.target.value)}
 							type='text'
 							value={newTodo}
 						/>
-            <button onClick={addTodo}>Create Task</button>
+            <button className='button' onClick={addTodo}>Create Task</button>
 					</div>
 				</div>
 			) : (
