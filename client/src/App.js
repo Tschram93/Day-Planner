@@ -13,16 +13,26 @@ function App() {
 		console.log(todos);
 	}, []);
 
-  const completeToDo = async id => {
-    const data = await fetch(API_BASE + `/todo/complete/` + id)
-      .then(res => res.json());
-    setTodos(todos => todos.map(todo => {
-      if (todo._id === data._id ) {
-        todo.complete = data.complete
-      }
-      return todo
-    }))
-  }
+	const completeToDo = async (id) => {
+		const data = await fetch(API_BASE + `/todo/complete/` + id).then((res) =>
+			res.json()
+		);
+		setTodos((todos) =>
+			todos.map((todo) => {
+				if (todo._id === data._id) {
+					todo.complete = data.complete;
+				}
+				return todo;
+			})
+		);
+	};
+
+	const deleteTodo = async (id) => {
+		const data = await fetch(API_BASE + `/todo/delete/` + id, {
+			method: 'DELETE',
+		}).then((res) => res.json());
+    setTodos(todos => todos.filter(todo => todo._id !== data._id));
+	};
 
 	const GetTodos = () => {
 		fetch(API_BASE + '/todos')
@@ -40,11 +50,12 @@ function App() {
 				{todos.map((todo) => (
 					<div
 						className={'task ' + (todo.complete ? 'is-complete' : '')}
-						key={todo._id} onClick={() => completeToDo(todo._id)}
+						key={todo._id}
+						onClick={() => completeToDo(todo._id)}
 					>
 						<div className='checkbox'></div>
 						<div className='text'>{todo.text}</div>
-						<div className='delete-task'>X</div>
+						<div className='delete-task' onClick={() => deleteTodo(todo._id)}>X</div>
 					</div>
 				))}
 			</div>
