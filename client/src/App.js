@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [popupActive, setPopupActive] = useState(false);
 	let name = 'Travis';
 	return (
 		<div className='App'>
