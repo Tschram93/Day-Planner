@@ -56,10 +56,9 @@ function App() {
 			.catch((err) => console.log(err));
 	};
 
-	let name = 'Travis';
 	return (
 		<div className='App'>
-			<h1>Welcome, {name}</h1>
+			<h1>Welcome, {'Travis'}</h1>
 			<h4>Your Tasks</h4>
 			<div className='tasks'>
 				{todos.map((todo) => (
