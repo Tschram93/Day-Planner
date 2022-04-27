@@ -1,9 +1,15 @@
 GET http://localhost:3001/todos
 
 ###
-POST http://localhost:3001/todos/new
+POST http://localhost:3001/todo/new
 Content-Type: application/json
 
 {
-    "text": "Go to thd Bank"
+    "text": "Drive Home"
 }
+
+###
+DELETE http://localhost:3001/todo/delete/62688adae918a17e85027d6c
+
+###
+PUT http://localhost:3001/todo/complete/62688eb1180ab3ffb4185922
