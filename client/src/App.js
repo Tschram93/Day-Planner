@@ -31,7 +31,7 @@ function App() {
 		const data = await fetch(API_BASE + `/todo/delete/` + id, {
 			method: 'DELETE',
 		}).then((res) => res.json());
-    setTodos(todos => todos.filter(todo => todo._id !== data._id));
+		setTodos((todos) => todos.filter((todo) => todo._id !== data._id));
 	};
 
 	const GetTodos = () => {
@@ -55,11 +55,33 @@ function App() {
 					>
 						<div className='checkbox'></div>
 						<div className='text'>{todo.text}</div>
-						<div className='delete-task' onClick={() => deleteTodo(todo._id)}>X</div>
+						<div className='delete-task' onClick={() => deleteTodo(todo._id)}>
+							X
+						</div>
 					</div>
 				))}
 			</div>
-      <div className="addPopup" onClick={() => setPopupActive(true)} >+</div>
+			<div className='addPopup' onClick={() => setPopupActive(true)}>
+				+
+			</div>
+			{popupActive ? (
+				<div className='popup'>
+					<div className='closePopup' onClick={() => setPopupActive(false)}>
+						X
+					</div>
+					<div className='content'>
+						<h3>Add Task</h3>
+						<input
+							className='add-task-input'
+							onChange={(e) => setNewTodo(e.target.value)}
+							type='text'
+							value={newTodo}
+						/>
+					</div>
+				</div>
+			) : (
+				''
+			)}
 		</div>
 	);
 }
