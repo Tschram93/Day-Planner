@@ -57,6 +57,30 @@ h4 {
     width: 64px;
 }
 
+.closePopup {
+    color: var(--dark);
+    cursor: pointer;
+    font-size: 20px;
+    height: 20px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 20px;
+}
+
+.popup {
+    background-color: var(--light);
+    border-radius: 16px;
+    box-shadow: 0px 3px 24px var(--dark);
+    left: 50%;
+    max-width: 400px;
+    padding: 32px;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
 .task {
     align-items: center;
     background-color: var(--dark);

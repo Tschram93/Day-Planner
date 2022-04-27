@@ -13,6 +13,21 @@ function App() {
 		console.log(todos);
 	}, []);
 
+  const addTodo = async () => {
+    const data = await fetch(API_BASE + '/todo/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'applicationjson'
+      },
+      body: JSON.stringify({
+        text: newTodo
+      })
+    }).then(res => res.json())
+    setTodos([...todos, data]);
+    setPopupActive(false);
+    setNewTodo('');
+  };
+
 	const completeToDo = async (id) => {
 		const data = await fetch(API_BASE + `/todo/complete/` + id).then((res) =>
 			res.json()
@@ -77,6 +92,7 @@ function App() {
 							type='text'
 							value={newTodo}
 						/>
+            <button onClick={addTodo}>Create Task</button>
 					</div>
 				</div>
 			) : (
