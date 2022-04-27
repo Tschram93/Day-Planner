@@ -40,6 +40,23 @@ h4 {
     text-transform: uppercase;
 }
 
+.addPopup {
+    align-items: center;
+    background-image: linear-gradient(to bottom right, var(--primary),  var(--secondary));
+    border-radius: 999px;
+    bottom: 32px;
+    color: var(--light);
+    cursor: pointer;
+    display: flex;
+    font-size: 28px;
+    font-weight: 900;
+    height: 64px;
+    justify-content: center;
+    position: fixed;
+    right: 32px;
+    width: 64px;
+}
+
 .task {
     align-items: center;
     background-color: var(--dark);
