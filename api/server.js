@@ -1,4 +1,5 @@
 const cors = require('cors');
+const DayPlanner = require('./models/dayPlanner');
 const express = require('express');
 const mongoose = require('mongoose');
 const PORT = 3001;
@@ -15,5 +16,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/day-planner', {
 })
     .then(() => console.log('Connected to DataBase'))
     .catch(console.error);
+
+app.get('/todos', async (req, res) => {
+    const todos = await DayPlanner.find();
+
+    res.json(todos);
+});
 
 app.listen(PORT, () => console.log('Server running on port: 3001'));
