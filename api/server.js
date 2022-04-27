@@ -41,7 +41,7 @@ app.delete('/todo/delete/:id', async (req, res) => {
 })
 
     // PUT
-app.put('/todo/complete/:id', async (req, res) => {
+app.get('/todo/complete/:id', async (req, res) => {
     const todo = await DayPlanner.findById(req.params.id);
 
     todo.complete = !todo.complete;
