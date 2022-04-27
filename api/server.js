@@ -2,7 +2,6 @@ const cors = require('cors');
 const DayPlanner = require('./models/dayPlanner');
 const express = require('express');
 const mongoose = require('mongoose');
-const PORT = 3001;
 
 const app =  express();
 
@@ -51,4 +50,4 @@ app.put('/todo/complete/:id', async (req, res) => {
     res.json(todo);
 })
 
-app.listen(PORT, () => console.log('Server running on port: 3001'));
+app.listen(3001, () => console.log('Server running on port: 3001'));
