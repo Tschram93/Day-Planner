@@ -1,1 +1,8 @@
-
+:root {
+    --dark: #3D405B;
+    --dark-alt: #023047;
+    --light: #F4F1DE;
+    --light-alt: #F2CC8F;
+    --primary: #E07A5F;
+    --secondary: #81B29A;
+}
