@@ -1,7 +1,6 @@
 const connectDB = require('./config/connection');
 const cors = require('cors');
 const DayPlanner = require('./models/dayPlanner');
-const db = require('./config/connection');
 const express = require('express');
 const mongoose = require('mongoose');
 
