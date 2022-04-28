@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/day-planner', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+const connectDB = async () => {
+	try {
+		const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/day-planner');
+		console.log(`MongoDB Connected: ${conn.connection.host}`);
+	} catch (err) {
+		console.log(err);
+		process.exit(1);
+	}
+};
 
-module.exports = mongoose.connection;
+module.exports = connectDB;

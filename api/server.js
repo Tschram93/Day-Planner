@@ -1,9 +1,11 @@
+const connectDB = require('./config/connection');
 const cors = require('cors');
 const DayPlanner = require('./models/dayPlanner');
 const db = require('./config/connection');
 const express = require('express');
 const mongoose = require('mongoose');
 
+connectDB();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -56,8 +58,8 @@ app.get('/todo/complete/:id', async (req, res) => {
 	res.json(todo);
 });
 
-db.once('open', () => {
+// db.once('open', () => {
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}!`)
     });
-});
+// });
